@@ -1,5 +1,5 @@
 # CRC32-Bypass
-This is a method of bypassing most memory integrity checks
+This is a method of bypassing memory integrity checks
 
 ## How does it work?
 - Create process & suspend it
