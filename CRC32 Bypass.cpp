@@ -39,7 +39,7 @@ int main(int argc, char* argv[]) {
 	RECT r;
 	GetWindowRect(console, &r);
 	SetConsoleTitleA(RandomString(10).c_str());
-	MoveWindow(console, r.left, r.top, 500, 300, TRUE); // 500 width, 200 height
+	MoveWindow(console, r.left, r.top, 500, 300, TRUE);
 	SetWindowPos(console, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOMOVE | SWP_NOSIZE);
 
 	if (argc < 2) {
