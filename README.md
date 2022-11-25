@@ -6,6 +6,6 @@ This is a method of bypassing memory integrity checks
 - Patch bytes
 - Resume process
 ## With Bypass
-![bypass](https://user-images.githubusercontent.com/102999825/203452915-567cee8f-90db-4cd9-848b-f01bd5cf3011.png)
+![Screenshot 2022-11-25 190439](https://user-images.githubusercontent.com/102999825/204037170-398ee28a-d657-4acd-a35c-0e01b0356832.png)
 ## Without Bypass
 ![before](https://user-images.githubusercontent.com/102999825/203624874-896c7d7e-595f-4270-86de-6569ca300ef6.png)
