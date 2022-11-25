@@ -51,19 +51,20 @@ int main(int argc, char* argv[]) {
 	wchar_t* wexeName = new wchar_t[exeName.size() + 1];
 	mbstowcs(wexeName, exeName.c_str(), exeName.size() + 1);
 	
-	// CREATE PROCESS
+	// CREATE PROCESS AND SUSPEND
 	SetColor(14, 0);
 	PROCESS_INFORMATION pi;
 	CreateProcess(argv[1], &pi);
 	HANDLE hProcess = OpenProcess(PROCESS_ALL_ACCESS, FALSE, pi.dwProcessId);
 	std::cout << "PID: " << pi.dwProcessId << std::endl;
-
-	// GET ADDRESSES AND SUSPEND
-	void* jmp1 = PatternScanExModule(hProcess, wexeName, wexeName, "\x75\x17\x48\x8D\x15\x00\x00\x00\x00", "xxxxx????");
-	void* jmp2 = PatternScanExModule(hProcess, wexeName, wexeName, "\x74\x07\x48\x8D\x15\x00\x00\x00\x00", "xxxxx????");
+	Sleep(1);
 	SuspendThread(pi.hThread);
 	SetColor(14, 0);
 	std::cout << "Process suspended\n\n";
+
+	// GET ADDRESSES
+	void* jmp1 = PatternScanExModule(hProcess, wexeName, wexeName, "\x75\x17\x48\x8D\x15\x00\x00\x00\x00", "xxxxx????");
+	void* jmp2 = PatternScanExModule(hProcess, wexeName, wexeName, "\x74\x07\x48\x8D\x15\x00\x00\x00\x00", "xxxxx????");
 
 	SetColor(14, 0);
 	std::cout << "Addresses\n";
